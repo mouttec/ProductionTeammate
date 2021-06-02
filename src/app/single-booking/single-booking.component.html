@@ -1,0 +1,148 @@
+<div class="row mt-5 mb-5 pt">
+  <div class="text-center col-9">
+      <h2>Rendez-vous de {{firstNameCustomer}} {{lastNameCustomer}}</h2>
+  </div>
+  <div class="text-right col-3">
+      <button style="font-size: 12px;" class="btn-danger" routerLink="/list-rdv">Retour à la liste</button>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-3 text-center m-auto">
+    <div class="m-auto">
+      <h3 class="m-0">Status de la prise en charge</h3>
+    </div>
+  </div>
+  <div class="col-4 text-center m-auto">
+    <div class="m-auto">
+      <p class="status m-0">{{ statusBooking }}</p>
+    </div>
+  </div>
+  <div class="col-4 text-center m-auto">
+    <div class="m-auto" *ngIf="carStatus === 'etape1'">
+      <button >Prendre en charge</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape2'">
+      <button >Photo de la carte d'identité</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape3'">
+      <button >Vidéo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape4'">
+      <button >Photo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape5'">
+      <button >Procurration</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape6'">
+      <button >Fiche états des lieux</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape7'">
+      <button >Arriver chez le garagiste</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape8'">
+      <button >Vidéo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape9'">
+      <button >Photo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape10'">
+      <button >Fiche états des lieux</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape16'">
+      <button >Prendre en charge le véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape17'">
+      <button >Vidéo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape18'">
+      <button >Photo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape19'">
+      <button >Fiche états des lieux</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape20'">
+      <button >Arriver chez le client</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape21'">
+      <button >Vérification de l'identité de la personne</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape22'">
+      <button >Vidéo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape23'">
+      <button >Photo du véhicule</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape24'">
+      <button >Frais additionnel</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape25'">
+      <button >Fiche états des lieux</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="row pb">
+  <div class="col-4 colInfoLeft">
+    <h3 class="text-center">Information du client</h3>
+    <div class="row">
+      <div class="col-12">
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Nom : </span>{{ firstNameCustomer }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Prénom : </span>{{ lastNameCustomer }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Adresse mail : </span> {{ mailCustomer }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Téléphone : </span> {{ phoneCustomer }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 colInfoLeft">
+    <h3 class="text-center">Information véhicule</h3>
+    <div class="row">
+      <div class="col-12">
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Plaque d'immatriculation : </span>{{ licensePlateCar }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Marque : </span>{{ brandCar }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Modèle : </span> {{ modelCar }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Motorisation : </span> {{ motorizationCar }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Date de première mise en circulation : </span> {{ dateOfCirculationCar }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 colInfoRight">
+    <h3 class="text-center">Information du Rendez-vos</h3>
+    <div class="row">
+      <div class="col-12">
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Date et heure de prise en charge : </span>{{ dateForth }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Adresse de prise en charge : </span></p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Date et heure de restitution : </span> {{ dateBack }}</p>
+        </div>
+        <div class="m-auto">
+            <p class="m-auto p-2 info"><span>Adresse de restitution : </span> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

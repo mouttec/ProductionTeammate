@@ -1,0 +1,4 @@
+export class Partner {
+
+  constructor(public usernamePartner?: string, public password?: string,  public typePartner?: string, public namePartner?: string, public mailPartner?: string, public phonePartner?: string, public statusPartner?: string, public numberAddressPartner?: string, public typeAddressPartner?: string, public nameAddressPartner?: string, public complementAddressPartner?: string, public zipAddressPartner?: string, public cityAddressPartner?: string, public nameBilling?: string, public siretPartner?: string, public typeBilling?: string, public numberAddressBilling?: string, public typeAddressBilling?: string, public nameAddressBilling?: string, public complementAddressBilling?: string, public zipAddressBilling?: string, public cityAddressBilling?: string , public idPartner?: number) {}
+}
