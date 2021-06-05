@@ -1,0 +1,46 @@
+<div class="row mt-5 mb-5">
+  <div class="col-12 text-center">
+      <h2>Modifier son profil</h2>
+  </div>
+</div>
+
+<div class="row">
+  <form class="col-8 offset-2" [formGroup]="updateProfil" (ngSubmit)="onSubmitFormUpdatePofil()">
+    <div class="row d-flex flex-row">
+      <div class="col-12 colInfoLeft">
+        <div class="row">
+          <div class="input-field d-flex flex-row mb">
+            <div class="input-field col-12">
+              <label for="usernameTeammate">Identifiant de connexion</label>
+              <input required type="text" class="validate" id="usernameTeammate" formControlName="usernameTeammate">
+              <!-- <div class="messageError">
+                  <sup>*</sup>Champ obligatoire
+              </div> -->
+            </div>
+          </div>
+          <div class="input-field d-flex flex-row mb">
+            <div class="input-field col-12">
+              <label for="mailTeammate">Adresse mail</label>
+              <input required type="text" class="validate" id="mailTeammate" formControlName="mailTeammate">
+              <!-- <div class="messageError">
+                  <sup>*</sup>Champ obligatoire
+              </div> -->
+            </div>
+          </div>
+          <div class="input-field d-flex flex-row mb">
+            <div class="input-field col-12">
+              <label for="phoneTeammate">Téléphone</label>
+              <input required type="text" class="validate" id="phoneTeammate" formControlName="phoneTeammate">
+              <!-- <div class="messageError">
+                  <sup>*</sup>Champ obligatoire
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+   <div class="mt-5 mb-5 text-center">
+    <button class="m-auto" id="btn" type="submit" [disabled]="updateProfil.invalid">Valider</button>
+  </div>
+  </form>
+</div>

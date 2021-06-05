@@ -5,12 +5,12 @@
 </div>
 
 <div class="row">
-  <form class="col-8 offset-2" >
+  <form class="col-8 offset-2" [formGroup]="authForm" (ngSubmit)="postdata(authForm)">
     <div class="row d-flex flex-column">
       <div class="input-field d-flex flex-row mb">
         <div class="input-field col-6">
-          <label for="usernamePartner">Identifiant</label>
-          <input required type="text" class="validate" id="usernamePartner" formControlName="usernamePartner">
+          <label for="usernameTeammate">Identifiant</label>
+          <input required type="text" class="validate" id="usernameTeammate" formControlName="usernameTeammate">
         </div>
         <div class="input-field col-6">
           <label for="password">Mot de passe</label>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class=" mt-3 mb-5 text-center">
-      <button class="m-auto" id="btn" >Connexion</button>
+      <button class="m-auto" id="btn" [disabled]="authForm.invalid">Connexion</button>
     </div>
   </form>
 </div>

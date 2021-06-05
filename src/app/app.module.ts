@@ -38,6 +38,9 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { UpdateProfilComponent } from './profil/update-profil/update-profil.component';
+import { UpdatePasswordComponent } from './profil/update-password/update-password.component';
+import { StepComponent } from './single-booking/step/step.component';
 
 registerLocaleData(localeFr);
 
@@ -68,7 +71,10 @@ registerLocaleData(localeFr);
     SinglePartnerComponent,
     ContractViewComponent,
     ContractComponent,
-    SingleContractComponent
+    SingleContractComponent,
+    UpdateProfilComponent,
+    UpdatePasswordComponent,
+    StepComponent
   ],
   imports: [
     BrowserModule,

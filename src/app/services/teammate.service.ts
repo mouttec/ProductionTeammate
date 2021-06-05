@@ -19,16 +19,12 @@ export class TeammateService {
   }
 
   readListTeammate(){
-    this.httpClient.get<Teammate[]>(`${this.baseUrl}/listTeammates.php`).subscribe(
+    return this.httpClient.get<Teammate[]>(`${this.baseUrl}/listTeammates.php`).subscribe(
       (reponse) => {
         this.teammates = reponse;
         this.emitTeammateSubject();
-      },
-      (error) => {
-        console.log('erreur de lecture' + error);
       }
     );
-    return this.httpClient.get<Teammate[]>(`${this.baseUrl}`);
   }
 
   addTeammate(teammate: Teammate) {
@@ -44,7 +40,7 @@ export class TeammateService {
   }
 
   getTeammateById(idTeammate) {
-    return this.httpClient.get(`${this.baseUrl}/listTeammate?idTeammate=${idTeammate}`);
+    return this.httpClient.get(`${this.baseUrl}/listTeammates.php?idTeammate=${idTeammate}`);
   }
 
   switchTeammateActivate(index: number): void {
@@ -55,5 +51,37 @@ export class TeammateService {
   switchNoTeammate(index: number): void {
     this.teammates[index].statusTeammate = 'Désactiver';
     this.emitTeammateSubject();
+  }
+
+  getUpdateById(idTeammate) {
+    return this.httpClient.get<Teammate[]>(`${this.baseUrl}listTeammates.php?idTeammate=${idTeammate}`).subscribe(
+      (teammates) => {
+        this.teammates = teammates;
+      }
+    );
+  }
+
+  updateTeammateProfil(teammate: Teammate) {
+    return this.httpClient.post(`${this.baseUrl}editTeammate.php`, teammate).subscribe(
+      () => {
+        this.teammates.push(teammate);
+        console.log('modification des données du salarié réussit');
+      },
+      (error) => {
+        console.log('erreur des modifications des données du salarié réussit' + error);
+      }
+    );
+  }
+
+  updateTeammatePassword(teammate) {
+    return this.httpClient.post(`${this.baseUrl}changePasswordTeammate.php`, teammate).subscribe(
+      () => {
+        this.teammates.push(teammate);
+        console.log('modification du mot de passe réussit');
+      },
+      (error) => {
+        console.log('erreur de modification du mot de passe' + error);
+      }
+    );
   }
 }

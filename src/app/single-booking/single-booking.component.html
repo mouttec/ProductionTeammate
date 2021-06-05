@@ -20,64 +20,79 @@
   </div>
   <div class="col-4 text-center m-auto">
     <div class="m-auto" *ngIf="carStatus === 'etape1'">
-      <button >Prendre en charge</button>
+      <button (click)="onSwitchEtape2()">Prendre en charge la voiture</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape2'">
-      <button >Photo de la carte d'identité</button>
+      <button (clcik)="onSwitchEtape3()" >Photo</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape3'">
-      <button >Vidéo du véhicule</button>
+      <button (clcik)="onSwitchEtape4()">Vidéo</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape4'">
-      <button >Photo du véhicule</button>
+      <p class="status m-0">Faut-il rajouter des photos ?</p>
+      <button (clcik)="onSwitchEtape5Photo()">Oui</button>
+      <button (clcik)="onSwitchEtape5()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape5'">
-      <button >Procurration</button>
+      <p class="status m-0">Faut-il rajouter une procuration ?</p>
+      <button (clcik)="onSwitchEtape6Procuration()">Oui</button>
+      <button (clcik)="onSwitchEtape6()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape6'">
-      <button >Fiche états des lieux</button>
+      <button (clcik)="onSwitchEtape7()">Etablir la fiche</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape7'">
-      <button >Arriver chez le garagiste</button>
+      <button (clcik)="onSwitchEtape8()">Arriver chez le garagiste</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape8'">
-      <button >Vidéo du véhicule</button>
+      <button (clcik)="onSwitchEtape9()">Vidéo</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape9'">
-      <button >Photo du véhicule</button>
+      <p class="status m-0">Faut-il rajouter des photos ?</p>
+      <button (clcik)="onSwitchEtape10Photo()">Oui</button>
+      <button (clcik)="onSwitchEtape10()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape10'">
-      <button >Fiche états des lieux</button>
+      <button (clcik)="onSwitchEtape11()">Etablir la fiche</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape16'">
-      <button >Prendre en charge le véhicule</button>
+      <button (clcik)="onSwitchEtape17()">Prendre en charge le véhicule</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape17'">
-      <button >Vidéo du véhicule</button>
+      <button (clcik)="onSwitchEtape18()">Vidéo</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape18'">
-      <button >Photo du véhicule</button>
+      <p class="status m-0">Faut-il rajouter des photos ?</p>
+      <button (clcik)="onSwitchEtape19Photo()">Oui</button>
+      <button (clcik)="onSwitchEtape19()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape19'">
-      <button >Fiche états des lieux</button>
+      <button (clcik)="onSwitchEtape20()">Etablir la fiche</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape20'">
-      <button >Arriver chez le client</button>
+      <button (clcik)="onSwitchEtape21()">Arriver chez le client</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape21'">
-      <button >Vérification de l'identité de la personne</button>
+      <button (clcik)="onSwitchEtape22()">Voir la carte d'identité</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape22'">
-      <button >Vidéo du véhicule</button>
+      <button (clcik)="onSwitchEtape23()">Vidéo</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape23'">
-      <button >Photo du véhicule</button>
+      <p class="status m-0">Faut-il rajouter des photos ?</p>
+      <button (clcik)="onSwitchEtape24Photo()">Oui</button>
+      <button (clcik)="onSwitchEtape24()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape24'">
-      <button >Frais additionnel</button>
+      <p class="status m-0">Faut-il rajouter des frais ?</p>
+      <button (clcik)="onSwitchEtape25Frais()">Oui</button>
+      <button (clcik)="onSwitchEtape25()">Non</button>
     </div>
     <div class="m-auto" *ngIf="carStatus === 'etape25'">
-      <button >Fiche états des lieux</button>
+      <button (clcik)="onSwitchEtape26()">Etablir la fiche</button>
+    </div>
+    <div class="m-auto" *ngIf="carStatus === 'etape26'">
+      <button (clcik)="onSwitchEtape27()">Valider la restitution</button>
     </div>
   </div>
 </div>

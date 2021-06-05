@@ -1,43 +1,43 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { Calendar } from 'src/app/models/calendar.model';
+import { Injectable, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  idTeammate = 2;
-  idTeammateLocal: any;
-
-  calendarSubject = new Subject<Calendar[]>();
-  url = 'http://localhost:8888/MoutteCAPI/backend/api/booking/prepareCalendar.php';
-  private calendars: Calendar[];
+    redirectUrl: string;
+    baseUrl = 'http://localhost:8888/MoutteCAPI/backend/api/teammate';
+    @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   constructor(private httpClient: HttpClient) { }
-
-
-  emitCalendar() {
-    this.calendarSubject.next(this.calendars);
+  public userlogin(usernameTeammate: any, password: any): any {
+    return this.httpClient.post<any>(this.baseUrl + '/loginTeammate.php', { usernameTeammate, password})
+    .pipe(map(Teammates  => {
+      this.setToken(Teammates.usernameTeammate);
+      this.getLoggedInName.emit(true);
+      return Teammates;
+    }));
   }
 
-  readCalendar() {
-    this.httpClient.get<Calendar[]>(`${this.url}`).subscribe(
-      (reponse) => {
-        this.calendars = reponse;
-        this.emitCalendar();
-      },
-      (error) => {
-        console.log(error)
-      }
-    );
-    return this.httpClient.get<Calendar[]>(`${this.url}`);
+  // token
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+  getToken() {
+    return localStorage.getItem('token');
+  }
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
+  isLoggedIn() {
+    const usertoken = this.getToken();
+    if (usertoken != null) {
+      return true;
+    }
+    return false;
   }
 
-  getByIdTeammate() {
-    localStorage.setItem('idTeammate', JSON.stringify(this.idTeammate));
-  }
 
 
 }

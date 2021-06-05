@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeammateService } from 'src/app/services/teammate.service';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profil',
@@ -22,30 +20,30 @@ export class ProfilComponent implements OnInit {
   jobTeammate: string;
   nameAgency: string;
 
-  idTeammate = localStorage.getItem('idTeammate');
+  idTeammate = JSON.parse(localStorage.getItem('idTeammate'));
 
-  constructor(private teammateService: TeammateService, private route: ActivatedRoute, private http: HttpClient, private authService: AuthService) { }
+  constructor(private teammateService: TeammateService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getTeammate(this.idTeammate);
-    this.authService.getByIdTeammate();
-    console.log(this.idTeammate);
   }
 
   getTeammate(idTeammate): void {
     this.teammateService.getTeammateById(idTeammate)
       .subscribe(
         teammate => {
-          this.currentTeammate = teammate;
-          this.usernameTeammate = this.currentTeammate.usernameTeammate;
-          this.firstNameTeammate = this.currentTeammate.firstNameTeammate;
-          this.lastNameTeammate = this.currentTeammate.lastNameTeammate;
-          this.usernameTeammate = this.currentTeammate.usernameTeammate;
-          this.mailTeammate = this.currentTeammate.nameAddressPartner;
-          this.phoneTeammate = this.currentTeammate.phoneTeammate;
-          this.statusTeammate = this.currentTeammate.statusTeammate;
-          this.jobTeammate = this.currentTeammate.jobTeammate;
 
+          this.currentTeammate = teammate;
+          this.usernameTeammate = this.currentTeammate[0].usernameTeammate;
+          this.firstNameTeammate = this.currentTeammate[0].firstNameTeammate;
+          this.lastNameTeammate = this.currentTeammate[0].lastNameTeammate;
+          this.usernameTeammate = this.currentTeammate[0].usernameTeammate;
+          this.mailTeammate = this.currentTeammate[0].mailTeammate;
+          this.phoneTeammate = this.currentTeammate[0].phoneTeammate;
+          this.statusTeammate = this.currentTeammate[0].statusTeammate;
+          this.jobTeammate = this.currentTeammate[0].jobTeammate;
+          localStorage.setItem('mailTeammate', JSON.stringify(this.mailTeammate));
+          localStorage.setItem('phoneTeammate', JSON.stringify(this.phoneTeammate));
         },
         error => {
           console.log(error);

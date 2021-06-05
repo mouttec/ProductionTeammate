@@ -30,22 +30,22 @@ interface Calendar {
 function changeColor(formulaBooking) {
   if (formulaBooking === 'technicalControl') {
     let color1 = {
-      primary: '#0AFBDB',
-      secondary: '#078372'
+      primary: '#FFFF00',
+      secondary: '#FFFF006e'
     }
     return color1
   }
   else if (formulaBooking === 'round') {
     let color2 = {
-      primary: '#E611B4',
-      secondary: '#830766'
+      primary: '#0000FF',
+      secondary: '#0000FF6e'
     }
     return color2
   }
   else if (formulaBooking === 'forth' || formulaBooking === 'back') {
     let color3 = {
-      primary: '#E67B11',
-      secondary: '#934F0C'
+      primary: '#EF7B15',
+      secondary: '#EF7B156e'
     }
     return color3
   }
@@ -109,7 +109,7 @@ export class CalendarComponent implements OnInit {
             title: event.fullNameCustomer,
             start: new Date(event.start),
             end: new Date(event.end),
-            colors: changeColor(event.formulaBooking)
+            color: changeColor(event.formulaBooking)
           };
         });
       })
