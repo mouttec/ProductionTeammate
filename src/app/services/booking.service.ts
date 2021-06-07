@@ -11,7 +11,7 @@ export class BookingService {
   bookingSubject = new Subject<Booking[]>();
   baseUrl = 'http://localhost:8888/MoutteCAPI/backend/api/booking';
   private bookings: Booking[];
-  carStatus = 'etape11';
+  carStatus = 'etape1';
 
   constructor(private httpClient: HttpClient) { }
 
