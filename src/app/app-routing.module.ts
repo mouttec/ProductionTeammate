@@ -23,28 +23,86 @@ import { UpdatePasswordComponent } from './profil/update-password/update-passwor
 
 const routes: Routes = [
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
-  { path: 'booking/:idBooking', component: SingleBookingComponent, canActivate: [AuthGuard] },
-  { path: 'addBooking', component: BookingFormsComponent, canActivate: [AuthGuard] },
-  { path: 'customer', component: CustomerViewComponent, canActivate: [AuthGuard] },
-  { path: 'customer/:idCustomer', component: SingleCustomerComponent, canActivate: [AuthGuard] },
-  { path: 'partner', component: PartnerViewComponent, canActivate: [AuthGuard] },
-  { path: 'partner/:idPartner', component: SinglePartnerComponent, canActivate: [AuthGuard] },
-  { path: 'contract', component: ContractViewComponent, canActivate: [AuthGuard] },
-  { path: 'contract/:idContract', component: SingleContractComponent, canActivate: [AuthGuard] },
-  { path: 'teammate', component: TeammateViewComponent, canActivate: [AuthGuard] },
-  { path: 'teammate/:idTeammate', component: SingleTeammateComponent, canActivate: [AuthGuard] },
-  { path: 'addTeammate', component: TeammateFormsComponent, canActivate: [AuthGuard] },
+  // vaka440
+  //{ path: 'booking/:idBooking', component: SingleBookingComponent, canActivate: [AuthGuard] },
+  { path: 'booking/:idBooking', component: SingleBookingComponent },
+  {
+    path: 'addBooking',
+    component: BookingFormsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'customer',
+    component: CustomerViewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'customer/:idCustomer',
+    component: SingleCustomerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'partner',
+    component: PartnerViewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'partner/:idPartner',
+    component: SinglePartnerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contract',
+    component: ContractViewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contract/:idContract',
+    component: SingleContractComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'teammate',
+    component: TeammateViewComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'teammate/:idTeammate',
+    component: SingleTeammateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'addTeammate',
+    component: TeammateFormsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'agency', component: AgencyViewComponent, canActivate: [AuthGuard] },
-  { path: 'agency/:idAgency', component: SingleAgencyComponent, canActivate: [AuthGuard] },
-  { path: 'addPartner', component: PartnerFormsComponent, canActivate: [AuthGuard] },
+  {
+    path: 'agency/:idAgency',
+    component: SingleAgencyComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'addPartner',
+    component: PartnerFormsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
-  { path: 'profil/updateProfil', component: UpdateProfilComponent, canActivate: [AuthGuard] },
-  { path: 'profil/updatePassword', component: UpdatePasswordComponent, canActivate: [AuthGuard] },
-  { path: '', component: AuthComponent }
+  {
+    path: 'profil/updateProfil',
+    component: UpdateProfilComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profil/updatePassword',
+    component: UpdatePasswordComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: '', component: AuthComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

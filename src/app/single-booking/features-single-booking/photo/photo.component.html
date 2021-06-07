@@ -1,0 +1,47 @@
+<div class="container-fx">
+  <ng-container *ngIf="!error">
+    <video
+      [class.show]="!isCaptured"
+      [class.hide]="isCaptured"
+      #video
+      id="video"
+      [width]="WIDTH"
+      [height]="HEIGHT"
+      autoplay
+    ></video>
+    <canvas
+      [class.show]="isCaptured"
+      [class.hide]="!isCaptured"
+      #canvas
+      id="canvas"
+      [width]="WIDTH"
+      [height]="HEIGHT"
+    ></canvas>
+  </ng-container>
+
+  <div class="snap-container">
+    <button *ngIf="!isCaptured" (click)="capture()">Prendre une photo</button>
+    <button *ngIf="isCaptured" (click)="removeCurrent()">
+      Lancer la caméra
+    </button>
+
+    <div *ngIf="error">
+      <p>Une erreur sur la caméra est survenue.</p>
+      <p>{{ error }}</p>
+    </div>
+  </div>
+
+  <ul class="list-unstyled container-fx-picture">
+    <li
+      *ngFor="let src of captures; let idx = index"
+      (click)="setPhoto(idx)"
+      [class.selected-picture]="selected === idx"
+    >
+      <img [src]="src" height="50" />
+    </li>
+  </ul>
+
+  <button *ngIf="selected >= 0" (click)="save()">
+    Enregistrer la photo séléctionné
+  </button>
+</div>

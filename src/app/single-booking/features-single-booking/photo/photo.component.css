@@ -1,0 +1,43 @@
+.snap-container {
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+.list-unstyled li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.selected-picture {
+  background: #125212;
+}
+
+li:hover {
+  background: #125212;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.container-fx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-fx-picture {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

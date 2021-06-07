@@ -41,6 +41,7 @@ import localeFr from '@angular/common/locales/fr';
 import { UpdateProfilComponent } from './profil/update-profil/update-profil.component';
 import { UpdatePasswordComponent } from './profil/update-password/update-password.component';
 import { StepComponent } from './single-booking/step/step.component';
+import { FeaturesSingleBookingModule } from './single-booking/features-single-booking/features-single-booking.module';
 
 registerLocaleData(localeFr);
 
@@ -74,7 +75,7 @@ registerLocaleData(localeFr);
     SingleContractComponent,
     UpdateProfilComponent,
     UpdatePasswordComponent,
-    StepComponent
+    StepComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,15 +84,20 @@ registerLocaleData(localeFr);
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+
+    FeaturesSingleBookingModule,
   ],
   providers: [
     DatePipe,
     AgencyService,
     TeammateService,
     AuthService,
-    CustomerService
+    CustomerService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
