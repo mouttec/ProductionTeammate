@@ -19,6 +19,21 @@ declare var MediaRecorder: any;
 export class VideoComponent implements OnInit {
   @Input() carStatus: string;
   @Input() statusBooking: string;
+  @Input() set initialData(value: any) {
+    console.log(value);
+    if (value) {
+      this.videoBase64 = value.data;
+      console.log(this.videoBase64);
+
+      fetch(this.videoBase64)
+        .then((res) => res.blob())
+        .then((res) => {
+          let vidSave: HTMLMediaElement = this.vid2.nativeElement;
+          let videoURL = window.URL.createObjectURL(res);
+          vidSave.src = videoURL;
+        });
+    }
+  }
   @Output() result = new EventEmitter<any>();
   constraintObj: object;
   @ViewChild('myVideoElement') myVideoElement: ElementRef;

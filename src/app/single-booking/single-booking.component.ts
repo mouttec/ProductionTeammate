@@ -40,15 +40,10 @@ export class SingleBookingComponent implements OnInit {
     this.carStatus = this.bookingService.getStatusCarProcess();
     this.getBooking(this.route.snapshot.paramMap.get('idBooking'));
     this.getChangeStatus();
-
-    // -----------------------------------------------------------------------   à supprimer
-    this.carStatus = 'etape2';
-    console.log('this.carStatus', this.carStatus);
-    // -----------------------------------------------------------------------   à supprimer
   }
 
-  onResult(event) {
-    this.results.push(event);
+  onResult(event: any) {
+    this.results[event.carStatus] = event;
     console.log(this.results);
   }
 

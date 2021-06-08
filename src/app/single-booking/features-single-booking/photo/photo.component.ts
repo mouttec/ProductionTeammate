@@ -17,6 +17,14 @@ import {
 export class PhotoComponent implements OnInit {
   @Input() carStatus: string;
   @Input() statusBooking: string;
+  @Input() set initialData(value: any) {
+    console.log(value);
+    if (value) {
+      this.selected = 0;
+      this.captures.push(value.data);
+      console.log(this.captures);
+    }
+  }
   @Output() result = new EventEmitter<any>();
 
   WIDTH = 640;

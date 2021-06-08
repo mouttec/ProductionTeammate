@@ -1,8 +1,12 @@
+<button (click)="carStatus = 'etape2'">etape2</button>
+<button (click)="carStatus = 'etape3'">etape3</button>
+
 <app-photo
   *ngIf="carStatus === 'etape2'"
   [carStatus]="carStatus"
   [statusBooking]="statusBooking"
   (result)="onResult($event)"
+  [initialData]="results[carStatus]"
 ></app-photo>
 
 <app-video
@@ -10,6 +14,7 @@
   [carStatus]="carStatus"
   [statusBooking]="statusBooking"
   (result)="onResult($event)"
+  [initialData]="results[carStatus]"
 ></app-video>
 
 <div class="row mt-5 mb-5 pt">
