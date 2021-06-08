@@ -9,7 +9,7 @@ import { Agency } from 'src/app/models/agencies.model';
 export class AgencyService {
 
   agencySubject = new Subject<Agency[]>();
-  baseUrl = 'http://localhost:8888/MoutteCAPI/backend/api/agency';
+  baseUrl = '../backend/api/agency';
   private  agencies: Agency[];
 
   constructor(private httpClient: HttpClient) { }

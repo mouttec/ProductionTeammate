@@ -10,7 +10,7 @@ export class CarProcessService {
 
   carProcessSubject = new Subject<CarProcess[]>();
   carProcessByIdBookingSubject = new Subject<CarProcess[]>();
-  api = 'http://localhost:8888/MoutteCAPI/backend/api/carProcess';
+  api = '../backend/api/carProcess';
   private carProcess: CarProcess[];
   private carProcessByBooking: CarProcess[];
 

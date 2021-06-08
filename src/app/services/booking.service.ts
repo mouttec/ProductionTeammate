@@ -9,7 +9,7 @@ import { Booking } from 'src/app/models/bookings.model';
 export class BookingService {
 
   bookingSubject = new Subject<Booking[]>();
-  baseUrl = 'http://localhost:8888/MoutteCAPI/backend/api/booking';
+  baseUrl = '../backend/api/booking';
   private bookings: Booking[];
   carStatus = 'etape1';
 

@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
     redirectUrl: string;
-    baseUrl = 'http://localhost:8888/MoutteCAPI/backend/api/teammate';
+    baseUrl = '../backend/api/teammate';
     @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   constructor(private httpClient: HttpClient) { }
