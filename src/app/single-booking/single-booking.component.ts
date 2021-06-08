@@ -27,6 +27,8 @@ export class SingleBookingComponent implements OnInit {
   carStatus: string;
   statusBooking: string;
 
+  results = <any>[]; // tableau qui contient le résultat de toutes les étapes
+
   constructor(
     private bookingService: BookingService,
     private route: ActivatedRoute,
@@ -39,10 +41,15 @@ export class SingleBookingComponent implements OnInit {
     this.getBooking(this.route.snapshot.paramMap.get('idBooking'));
     this.getChangeStatus();
 
-    // -----------------------------------------------------------------------
-
+    // -----------------------------------------------------------------------   à supprimer
     this.carStatus = 'etape2';
     console.log('this.carStatus', this.carStatus);
+    // -----------------------------------------------------------------------   à supprimer
+  }
+
+  onResult(event) {
+    this.results.push(event);
+    console.log(this.results);
   }
 
   getBooking(idBooking) {

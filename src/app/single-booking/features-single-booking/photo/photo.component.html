@@ -1,4 +1,6 @@
 <div class="container-fx">
+  <h2>{{ carStatus }} : {{ statusBooking }}</h2>
+
   <ng-container *ngIf="!error">
     <video
       [class.show]="!isCaptured"
@@ -22,7 +24,7 @@
   <div class="snap-container">
     <button *ngIf="!isCaptured" (click)="capture()">Prendre une photo</button>
     <button *ngIf="isCaptured" (click)="removeCurrent()">
-      Lancer la caméra
+      Initialiser la caméra
     </button>
 
     <div *ngIf="error">
@@ -41,7 +43,7 @@
     </li>
   </ul>
 
-  <button *ngIf="selected >= 0" (click)="save()">
-    Enregistrer la photo séléctionné
+  <button *ngIf="selected >= 0" (click)="onSave()">
+    Valider la photo séléctionnée
   </button>
 </div>

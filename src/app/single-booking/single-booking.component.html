@@ -1,4 +1,16 @@
-<app-photo></app-photo>
+<app-photo
+  *ngIf="carStatus === 'etape2'"
+  [carStatus]="carStatus"
+  [statusBooking]="statusBooking"
+  (result)="onResult($event)"
+></app-photo>
+
+<app-video
+  *ngIf="carStatus === 'etape3'"
+  [carStatus]="carStatus"
+  [statusBooking]="statusBooking"
+  (result)="onResult($event)"
+></app-video>
 
 <div class="row mt-5 mb-5 pt">
   <div class="text-center col-9">

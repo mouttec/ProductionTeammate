@@ -1,0 +1,33 @@
+<div class="container-fx">
+  <h2>{{ carStatus }} : {{ statusBooking }}</h2>
+
+  <div>
+    <button
+      #startCam
+      (click)="onStartCamera()"
+      class="btn btn-primary"
+      [disabled]="start"
+    >
+      Initialiser la caméra
+    </button>
+    <button #btnStart class="btn btn-success">
+      Démarrarer l'enregistrement
+    </button>
+    <button #btnStop class="btn btn-danger">Arrêter</button>
+    <button
+      (click)="clearRecording()"
+      class="btn btn-secondary"
+      [disabled]="start"
+    >
+      Éffacer l'enregistrement
+    </button>
+  </div>
+
+  <h4>{{ recordMsg }}</h4>
+
+  <video controls #myVideoElement></video>
+
+  <video #vid2 controls></video>
+
+  <button *ngIf="videoBase64" (click)="onSave()">Valider la vidéo</button>
+</div>

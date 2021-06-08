@@ -2,8 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
+  Output,
   OnInit,
   ViewChild,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -12,6 +15,10 @@ import {
   styleUrls: ['./photo.component.css'],
 })
 export class PhotoComponent implements OnInit {
+  @Input() carStatus: string;
+  @Input() statusBooking: string;
+  @Output() result = new EventEmitter<any>();
+
   WIDTH = 640;
   HEIGHT = 480;
 
@@ -80,7 +87,10 @@ export class PhotoComponent implements OnInit {
       .drawImage(image, 0, 0, this.WIDTH, this.HEIGHT);
   }
 
-  save() {
-    console.log(this.captures[this.selected]); // l'image à envoyé au back qui est sous la forme d'une base64
+  onSave() {
+    this.result.emit({
+      carStatus: this.carStatus,
+      data: this.captures[this.selected],
+    });
   }
 }
