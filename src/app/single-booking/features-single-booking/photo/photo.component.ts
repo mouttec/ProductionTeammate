@@ -20,9 +20,10 @@ export class PhotoComponent implements OnInit {
   @Input() set initialData(value: any) {
     console.log(value);
     if (value) {
+      this.captures = [];
       this.selected = 0;
       this.captures.push(value.data);
-      console.log(this.captures);
+      console.log('initialData this.captures', this.captures);
     }
   }
   @Output() result = new EventEmitter<any>();

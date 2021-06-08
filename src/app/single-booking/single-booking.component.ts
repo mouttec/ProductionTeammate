@@ -28,6 +28,8 @@ export class SingleBookingComponent implements OnInit {
   statusBooking: string;
 
   results = <any>[]; // tableau qui contient le résultat de toutes les étapes
+  appPhoto = false;
+  appVideo = false;
 
   constructor(
     private bookingService: BookingService,
@@ -45,6 +47,18 @@ export class SingleBookingComponent implements OnInit {
   onResult(event: any) {
     this.results[event.carStatus] = event;
     console.log(this.results);
+  }
+
+  onClickButton(choice) {
+    this.getChangeStatus();
+    this.appPhoto = false;
+    this.appVideo = false;
+    this.carStatus = choice;
+    if (choice == 'etape2') {
+      this.appPhoto = true;
+    } else if (choice == 'etape3') {
+      this.appVideo = true;
+    }
   }
 
   getBooking(idBooking) {
